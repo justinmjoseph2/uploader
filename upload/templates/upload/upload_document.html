@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Document</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card shadow p-4" style="width: 40rem; border-radius: 10px;">
+            <h2 class="text-center mb-4">Upload Document</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_title" class="form-label">Document Title</label>
+                    <input type="text" id="id_title" name="title" class="form-control" placeholder="Enter document title" required>
+                </div>
+                <div class="mb-4">
+                    <label for="id_uploaded_file" class="form-label">Select File</label>
+                    <input type="file" id="id_uploaded_file" name="uploaded_file" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Upload Document</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{% url 'document_list' %}" class="btn btn-link">Back to Document List</a>
+            </div>
+        </div>
+    </div>
+    <!-- Add Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
